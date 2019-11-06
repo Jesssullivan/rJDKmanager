@@ -43,5 +43,5 @@ This is not difficult to do now and again, but keeping a CLI totally in R for mo
     the specified JDK will be configured for rJava.
                                                         
 ```
-*really bad walkthrough video from terminal, haven't written proper readme yet*
+*really bad walkthrough video from terminal:*
 [![Alt text](https://img.youtube.com/vi/65OlQ7i0fPw/0.jpg)](https://www.youtube.com/watch?v=65OlQ7i0fPw)
