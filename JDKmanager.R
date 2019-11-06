@@ -24,14 +24,14 @@ halt <- function(...) {
   # https://www.mail-archive.com/r-help@r-project.org/msg117700.html
   # and again here:
   # https://stackoverflow.com/a/33916009
-  blankMsg <- sprintf("\r%s\r", paste(rep(" ", getOption("width")-1L), collapse=" "));
+  blankMsg <- sprintf("\r%s\r", paste0(rep(" ", getOption("width")-1L), collapse=" "));
   stop(simpleError(blankMsg));
 }
 
 cmd <- 'echo ... '
 
 helpString <- function() {
-  writeLines(paste('\n JDKmanager help: \n',
+  writeLines(paste0('\n JDKmanager help: \n',
                                 '(args are not case sensitive) \n',
                                 '(usage: `sudo rscript JDKmanager.R help`) \n\n',
                                 'list    :: prints contents of default JDK path and removed JDK path \n',
@@ -47,12 +47,12 @@ main <- function() {
   
   if (grepl('help', commandArgs()[5], ignore.case = TRUE)) {
     helpString()
-    return(halt())
+    halt()
   }
   
   if (length(commandArgs()) != 6) {
-    print("please use sudo and supply one argument! supply 'help' for options")
-    return(halt())
+    print("\n please use sudo and supply one argument! supply 'help' for options")
+    halt()
   }
 
   arg <- as.character(commandArgs()[6])
@@ -102,18 +102,18 @@ main <- function() {
     
     writeLines(paste0('\n attempting to isolate JDK ', arg))
     
-    writeLines('checking removed JDK path ... ')
+    writeLines('\n checking removed JDK path ... ')
    
     for (type in removedJDKs) {
       if (grepl(arg, type)) {
-        print(paste0('not complete- JDK ', 
+        print(paste0('\n not complete- JDK ', 
                      arg, ' found in ', removedJDKpath, 
                      ' please run run RESET arg before continuing'))
         halt()
       }
     }
     
-    print('checking default JDK path')
+    print('\n checking default JDK path')
     
     for (type in installedJDKs) {
       if (!grepl(arg, type)) {
@@ -129,4 +129,3 @@ main <- function() {
 main()
 
 ### END ###
-
