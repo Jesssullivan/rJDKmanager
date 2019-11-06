@@ -79,7 +79,6 @@ main <- function() {
     } else {
       writeLines('\n no JDK found, default path is empty!')
     }
-
     halt()
   }
   
@@ -95,7 +94,7 @@ main <- function() {
     # commit changes: 
     system(cmd)  # must be sudo user
     writeLines('\n reset JDKs to default path successfully!')
-    return(halt())
+    halt()
   }
   
   if (!grepl('reset', arg, ignore.case = TRUE)) {
@@ -119,6 +118,7 @@ main <- function() {
       if (!grepl(arg, type)) {
         system(paste0('mv ', osxJDKpath, type, 
                            paste0(' ', removedJDKpath, type)))
+    halt()
       }
     }
   }
