@@ -1,5 +1,4 @@
-***Quickly & forcefully manage extra JDKs in base R
-Simplify rJava woes***
+***Quickly & forcefully manage extra JDKs in base R & Simplify rJava woes***
 ```
 # get this script:
 wget https://raw.githubusercontent.com/Jesssullivan/rJDKmanager/master/JDKmanager.R
